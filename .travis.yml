@@ -2,10 +2,15 @@ language: go
 sudo: false
 go:
   - 1.9.x
+deploy:
+  provider: releases
+  api_key: "1b280d09b6f7697a4359f939d943818430566c82"
+  file: "bin/sshs-linux-amd64"
+  skip_cleanup: true
+  on:
+    tags: true
 install:
   - go get -v golang.org/x/crypto/ssh
   - go get -v golang.org/x/crypto/ssh/terminal
 script:
-  - chmod +x build.sh
-  - ./build.sh
-  - ls bin
+  - GOARCH=amd64 GOOS=linux go build -o bin/sshs-linux-amd64 ./
