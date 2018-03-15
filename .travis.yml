@@ -1,0 +1,8 @@
+language: go
+go:
+  - 1.9.x
+install:
+  - go get -v golang.org/x/crypto/ssh
+  - go get -v golang.org/x/crypto/ssh/terminal
+script:
+  - echo $GOPATH
