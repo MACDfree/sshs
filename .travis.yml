@@ -8,4 +8,5 @@ install:
   - go get -v golang.org/x/crypto/ssh
   - go get -v golang.org/x/crypto/ssh/terminal
 script:
+  - chmod +x build.sh
   - ./build.sh
