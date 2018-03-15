@@ -8,3 +8,4 @@ install:
 script:
   - chmod +x build.sh
   - ./build.sh
+  - ls $GOPATH/bin
