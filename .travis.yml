@@ -2,8 +2,6 @@ language: go
 sudo: false
 go:
   - 1.9.x
-env:
-  - GO
 install:
   - go get -v golang.org/x/crypto/ssh
   - go get -v golang.org/x/crypto/ssh/terminal
