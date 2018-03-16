@@ -1,5 +1,7 @@
 # SSH连接管理工具
 
+[![Build Status](https://travis-ci.org/MACDfree/sshs.svg?branch=master)](https://travis-ci.org/MACDfree/sshs)
+
 ## 起源
 
 linux中ssh命令最多只能设置别名，无法记住密码，要么就是配置密钥。
