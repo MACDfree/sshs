@@ -22,7 +22,10 @@ linux中ssh命令最多只能设置别名，无法记住密码，要么就是配
 存储文件位置：~/.sshs.yml
 存储格式：
 
-``` text
-# alias ip  port    username    password
-123  192.168.123.123  22  root    123456
+``` yaml
+alias1:
+  ip: "192.168.123.123"
+  port: 22
+  username: "root"
+  password: "123456"
 ```
