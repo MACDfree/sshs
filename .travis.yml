@@ -14,3 +14,7 @@ install:
   - go get -v golang.org/x/crypto/ssh/terminal
 script:
   - GOARCH=amd64 GOOS=linux go build -o bin/sshs-linux-amd64 ./
+notifications:
+  slack:
+    on_failure: always
+    on_success: never
