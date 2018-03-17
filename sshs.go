@@ -23,12 +23,17 @@ var (
 	sessions map[string]config.Session
 )
 
+func init() {
+	// 初始化设置日志格式
+	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
+}
+
 func main() {
 	app := cli.NewApp()
 
 	app.Name = "sshs"
 	app.Usage = "manage ssh sessions"
-	app.Version = "1.0"
+	app.Version = "0.1"
 	app.EnableBashCompletion = true
 	app.Action = func(c *cli.Context) error {
 		if c.Args().First() != "" {
@@ -162,9 +167,4 @@ func main() {
 
 	err := app.Run(os.Args)
 	common.CheckError(err)
-}
-
-func init() {
-	// 初始化设置日志格式
-	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
 }
