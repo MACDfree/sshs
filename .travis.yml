@@ -4,7 +4,7 @@ go:
   - 1.9.x
 deploy:
   provider: releases
-  api_key: "8452ee48f050f789c9343fa4b2d9b42376f8068c"
+  api_key: $GITHUB_OAUTH_TOKEN
   file:
     - "bin/sshs-${TRAVIS_TAG}-linux-amd64"
     - "bin/sshs-${TRAVIS_TAG}-darwin-amd64"
