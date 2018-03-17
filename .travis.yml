@@ -4,16 +4,25 @@ go:
   - 1.9.x
 deploy:
   provider: releases
-  api_key: "1b280d09b6f7697a4359f939d943818430566c82"
-  file: "bin/sshs-linux-amd64"
+  api_key: "8452ee48f050f789c9343fa4b2d9b42376f8068c"
+  file:
+    - "bin/sshs-${TRAVIS_TAG}-linux-amd64"
+    - "bin/sshs-${TRAVIS_TAG}-darwin-amd64"
   skip_cleanup: true
   on:
     tags: true
 install:
-  - go get -v golang.org/x/crypto/ssh
-  - go get -v golang.org/x/crypto/ssh/terminal
+  - go get -d -t -v ./...
+  # - go get -v golang.org/x/crypto/ssh
+  # - go get -v golang.org/x/crypto/ssh/terminal
+  # - go get -v gopkg.in/yaml.v2
+  # - go get -v gopkg.in/urfave/cli.v1
+  # - go get -v github.com/rodaine/table
+  # - go get -v github.com/fatih/color
 script:
-  - GOARCH=amd64 GOOS=linux go build -o bin/sshs-linux-amd64 ./
+  - chmod +x build.sh
+  - ./build.sh
+  # - GOARCH=amd64 GOOS=linux go build -o bin/sshs-linux-amd64 ./
 notifications:
   email:
     on_failure: always
