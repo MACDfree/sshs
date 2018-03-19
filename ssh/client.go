@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"net"
 	"os"
+	"strconv"
 
 	"github.com/MACDfree/sshs/common"
 	"github.com/MACDfree/sshs/config"
@@ -40,7 +41,8 @@ func SSH(session config.Session) {
 		}
 	}
 
-	client, err := ssh.Dial("tcp", session.IP+":"+string(session.Port), clientConfig)
+	// int转string需要使用strconv.Itoa，不能直接使用string()强转
+	client, err := ssh.Dial("tcp", session.IP+":"+strconv.Itoa(session.Port), clientConfig)
 	common.CheckError(err)
 	defer client.Close()
 	sshSession, err := client.NewSession()
