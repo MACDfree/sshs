@@ -33,7 +33,7 @@ func main() {
 
 	app.Name = "sshs"
 	app.Usage = "manage ssh sessions"
-	app.Version = "0.1"
+	app.Version = "0.2"
 	app.EnableBashCompletion = true
 	app.Action = func(c *cli.Context) error {
 		if c.Args().First() != "" {
