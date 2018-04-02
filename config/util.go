@@ -44,8 +44,9 @@ func ReadConfig() (map[string]Session, bool) {
 // WriteConfig 将sessions写会配置文件中
 func WriteConfig(sessions map[string]Session) {
 	str := writeConfigStr(sessions)
-	file, err := os.OpenFile(common.ConfigPath, os.O_RDWR|os.O_CREATE, 0600)
+	file, err := os.OpenFile(common.ConfigPath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	common.CheckError(err)
 	defer file.Close()
 	_, err = io.WriteString(file, str)
+	common.CheckError(err)
 }
